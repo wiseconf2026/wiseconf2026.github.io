@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WISE 2026 — Workshop on Information Systems and Economics | Lisbon, Portugal</title>
+<meta name="description" content="WISE 2026: The premier academic forum for research at the intersection of information systems and economics. December 2026, Lisbon, Portugal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0a1628;
+  --navy-mid: #132240;
+  --teal: #1a3a4a;
+  --gold: #c8963e;
+  --gold-light: #ddb76a;
+  --gold-pale: #f5e6c8;
+  --warm-white: #faf8f5;
+  --warm-gray: #f0ece6;
+  --text: #1a1a2e;
+  --text-light: #5a5a6e;
+  --white: #ffffff;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 2rem;
+  transition: background 0.4s, box-shadow 0.4s, padding 0.4s;
+}
+
+.nav.scrolled {
+  background: rgba(10, 22, 40, 0.97);
+  box-shadow: 0 1px 30px rgba(0,0,0,0.15);
+  backdrop-filter: blur(12px);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.3s, opacity 0.3s;
+  display: block;
+}
+
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 22, 40, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  padding: 2rem;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.3s, padding-left 0.3s;
+}
+
+.mobile-menu a:hover {
+  color: var(--gold);
+  padding-left: 0.5rem;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(200,150,62,0.5) 59px, rgba(200,150,62,0.5) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(200,150,62,0.5) 59px, rgba(200,150,62,0.5) 60px);
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(200,150,62,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,58,74,0.3) 0%, transparent 50%);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  padding: 2rem;
+  max-width: 900px;
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  color: var(--white);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 300;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.7s forwards;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+
+.hero-meta-item {
+  text-align: center;
+}
+
+.hero-meta-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.hero-meta-value {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: fadeUp 0.8s 1.2s forwards;
+}
+
+.hero-scroll a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.hero-scroll a:hover { color: var(--gold); }
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: scrollPulse 2s infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 7rem 2rem;
+}
+
+.section--gray { background: var(--warm-gray); }
+.section--warm { background: var(--warm-white); }
+.section--dark {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.section-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.section--dark .section-label { color: var(--gold-light); }
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 2rem;
+}
+
+.section--dark .section-title { color: var(--white); }
+
+.section-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  max-width: 700px;
+}
+
+.section--dark .section-text { color: rgba(255,255,255,0.6); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+
+.about-stat {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.about-stat-number {
+  font-family: var(--serif);
+  font-size: 3rem;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.about-stat-text {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  margin-top: 3rem;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), var(--gold-pale), transparent);
+}
+
+.timeline-item {
+  padding-left: 3rem;
+  padding-bottom: 2.5rem;
+  position: relative;
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: -5px;
+  top: 0.3rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--gold);
+  transition: background 0.3s;
+}
+
+.timeline-item:hover .timeline-dot { background: var(--gold); }
+
+.timeline-date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.timeline-event {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.timeline-note {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ── CALL FOR PAPERS ── */
+.cfp-card {
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 3.5rem;
+  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cfp-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(200,150,62,0.15), transparent 70%);
+}
+
+.cfp-card .section-label { color: var(--gold-light); }
+
+.cfp-card h3 {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.cfp-card p {
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+  font-size: 1rem;
+  position: relative;
+}
+
+.cfp-topics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 2rem;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.cfp-topic {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
+
+.cfp-topic::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ── COMMITTEE ── */
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.committee-card {
+  padding: 2rem;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.committee-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.committee-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.committee-affiliation {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.committee-role {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+/* ── VENUE ── */
+.venue-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.venue-feature {
+  padding: 2rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.venue-feature-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.venue-feature h4 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.venue-feature p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+/* ── REGISTRATION ── */
+.reg-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--gold-pale);
+  color: var(--text);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  border-left: 3px solid var(--gold);
+}
+
+/* ── PAST WISE ── */
+.past-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.past-item {
+  padding: 1.25rem 1.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.past-item:hover {
+  border-color: var(--gold);
+  background: rgba(200,150,62,0.05);
+}
+
+.past-year {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--gold-light);
+  margin-bottom: 0.25rem;
+}
+
+.past-location {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.past-toggle {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.past-toggle:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.past-hidden { display: none; }
+.past-hidden.show { display: grid; }
+
+/* ── SPONSORS ── */
+.sponsors-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: var(--gold);
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.sponsors-cta:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.sponsors-cta svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── SPONSOR LOGOS ── */
+.sponsor-logos {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.sponsor-logo {
+  height: 60px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.sponsor-logo:hover {
+  opacity: 1;
+}
+
+.sponsor-logo--invert {
+  filter: invert(1);
+}
+
+.sponsor-logo--invert:hover {
+  filter: invert(1);
+}
+
+/* ── LISBON PHOTO STRIP ── */
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 300px;
+  overflow: hidden;
+}
+
+.photo-strip-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-strip-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.photo-strip-item:hover img {
+  transform: scale(1.05);
+}
+
+.photo-strip-item .photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(10,22,40,0.8), transparent);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .photo-strip {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .photo-strip-item { height: 200px; }
+  .sponsor-logos { gap: 2rem; }
+  .sponsor-logo { height: 45px; }
+}
+
+/* ── WISE LOGO ── */
+.wise-logo {
+  height: 80px;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.1s forwards;
+}
+
+.nav-wise-logo {
+  height: 36px;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+/* ── VENUE IMAGE ── */
+.venue-hero {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  height: 320px;
+}
+
+.venue-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.venue-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--navy) 0%, rgba(10,22,40,0.3) 50%, rgba(10,22,40,0.1) 100%);
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 3rem 2rem;
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.footer-brand span { color: var(--gold); }
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .section { padding: 4rem 1.5rem; }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .cfp-card { padding: 2rem; }
+
+  .cfp-topics { grid-template-columns: 1fr; }
+
+  .committee-grid { grid-template-columns: 1fr; }
+
+  .venue-features {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .past-grid { grid-template-columns: 1fr 1fr; }
+
+  .hero-meta { gap: 2rem; }
+
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .past-grid { grid-template-columns: 1fr; }
+  .about-stats { grid-template-columns: 1fr; }
+  .hero-meta { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo"><img src="images/wise_logo.jpg" alt="WISE" class="nav-wise-logo">WISE<span>2026</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#dates">Dates</a></li>
+      <li><a href="#cfp">Call for Papers</a></li>
+      <li><a href="#committee">Committee</a></li>
+      <li><a href="#venue">Venue</a></li>
+      <li><a href="#registration">Registration</a></li>
+      <li><a href="#past">Past WISE</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#dates" onclick="closeMobile()">Important Dates</a>
+  <a href="#cfp" onclick="closeMobile()">Call for Papers</a>
+  <a href="#committee" onclick="closeMobile()">Committee</a>
+  <a href="#venue" onclick="closeMobile()">Venue</a>
+  <a href="#registration" onclick="closeMobile()">Registration</a>
+  <a href="#program" onclick="closeMobile()">Program</a>
+  <a href="#sponsors" onclick="closeMobile()">Sponsors</a>
+  <a href="#past" onclick="closeMobile()">Past WISE</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <img src="images/wise_logo.jpg" alt="WISE - Workshop on Information Systems and Economics" class="wise-logo">
+    <div class="hero-eyebrow">The 37th Annual Workshop</div>
+    <h1 class="hero-title">WISE <em>2026</em></h1>
+    <p class="hero-subtitle">Workshop on Information Systems &amp; Economics<br>The premier forum for research at the intersection of information systems and economics</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Location</div>
+        <div class="hero-meta-value">Lisbon, Portugal</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Date</div>
+        <div class="hero-meta-value">December 16–18, 2026</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Submissions Open</div>
+        <div class="hero-meta-value">June 1, 2026</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <a href="#about">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </a>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">About the Conference</div>
+      <h2 class="section-title">Where Information Systems<br>Meets Economics</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="section-text">WISE is the premier academic forum for the discussion of research relating to the economics of information systems. Founded in 1989, WISE brings together leading researchers, industry practitioners, and students to explore critical issues at the intersection of information systems, economics, and technology.</p>
+        <p class="section-text" style="margin-top:1.5rem;">WISE 2026 will be held in Lisbon, Portugal — a city celebrated for its innovation ecosystem, centuries of global connectivity, and vibrant academic community.</p>
+      </div>
+      <div class="about-stats reveal">
+        <div class="about-stat">
+          <div class="about-stat-number">37</div>
+          <div class="about-stat-text">Years of advancing IS research</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">5</div>
+          <div class="about-stat-text">Continents hosted</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">2026</div>
+          <div class="about-stat-text">Lisbon, Portugal edition</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">3</div>
+          <div class="about-stat-text">Days of presentations &amp; events</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LISBON PHOTO STRIP ── -->
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <img src="images/lisbon_bridge.jpg" alt="Ponte 25 de Abril bridge over the Tagus river, Lisbon" loading="lazy">
+    <div class="photo-caption">Ponte 25 de Abril</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="images/lisbon_tram.jpg" alt="Traditional yellow tram in Lisbon streets" loading="lazy">
+    <div class="photo-caption">Historic Lisbon Tram</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="images/lisbon_belem.jpg" alt="Torre de Belém, Lisbon" loading="lazy">
+    <div class="photo-caption">Torre de Belém</div>
+  </div>
+</div>
+
+<!-- ── IMPORTANT DATES ── -->
+<section class="section section--gray" id="dates">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Important Dates</div>
+      <h2 class="section-title">Key Deadlines</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">June 1, 2026</div>
+        <div class="timeline-event">Submission Portal Opens</div>
+        <div class="timeline-note">Authors may begin submitting extended abstracts</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">August 24, 2026</div>
+        <div class="timeline-event">Submission Deadline</div>
+        <div class="timeline-note">11:59 PM Anywhere on Earth (AoE)</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">September 30, 2026</div>
+        <div class="timeline-event">Decision Notifications</div>
+        <div class="timeline-note">Authors will be notified of acceptance decisions</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">September 30, 2026</div>
+        <div class="timeline-event">Early Registration Opens</div>
+        <div class="timeline-note">Discounted registration rates available</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">October 14, 2026</div>
+        <div class="timeline-event">Early Registration Closes</div>
+        <div class="timeline-note">Standard registration rates apply after this date</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">December 16, 2026</div>
+        <div class="timeline-event">Welcome Reception</div>
+        <div class="timeline-note">Evening reception — Lisbon, Portugal</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">December 17–18, 2026</div>
+        <div class="timeline-event">WISE 2026 Conference</div>
+        <div class="timeline-note">Two full days of paper presentations — Lisbon, Portugal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CALL FOR PAPERS ── -->
+<section class="section" id="cfp">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Submit Your Research</div>
+      <h2 class="section-title">Call for Papers</h2>
+    </div>
+    <div class="cfp-card reveal">
+      <div class="section-label">Topics of Interest</div>
+      <h3>WISE 2026 welcomes original research</h3>
+      <p>The Call for Papers for WISE 2026 will be available soon. WISE welcomes original research papers that address topics related to the economics of information systems. Submissions should be extended abstracts. Detailed submission guidelines will be posted when the submission portal opens on June 1, 2026.</p>
+      <div class="cfp-topics">
+        <div class="cfp-topic">Economics of Information Systems</div>
+        <div class="cfp-topic">Digital Platforms &amp; Marketplaces</div>
+        <div class="cfp-topic">AI &amp; Machine Learning in Business</div>
+        <div class="cfp-topic">Digital Markets &amp; Competition</div>
+        <div class="cfp-topic">Privacy &amp; Security Economics</div>
+        <div class="cfp-topic">Economics of Innovation</div>
+        <div class="cfp-topic">Digital Transformation</div>
+        <div class="cfp-topic">Online Labor Markets</div>
+        <div class="cfp-topic">Social Media &amp; Networks</div>
+        <div class="cfp-topic">Healthcare IT Economics</div>
+        <div class="cfp-topic">FinTech &amp; Crypto Economics</div>
+        <div class="cfp-topic">Generative AI &amp; Economics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMMITTEE ── -->
+<section class="section section--gray" id="committee">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Organizing Committee</div>
+      <h2 class="section-title">Conference Co-Chairs</h2>
+    </div>
+    <div class="committee-grid reveal">
+      <div class="committee-card">
+        <div class="committee-role">Local Organizer &amp; Co-Chair</div>
+        <div class="committee-name">Rodrigo Belo</div>
+        <div class="committee-affiliation">Nova School of Business &amp; Economics</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-role">Co-Chair</div>
+        <div class="committee-name">Pedro Ferreira</div>
+        <div class="committee-affiliation">Heinz College, Carnegie Mellon University</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-role">Local Organizer &amp; Co-Chair</div>
+        <div class="committee-name">Miguel Godinho de Matos</div>
+        <div class="committee-affiliation">Católica Lisbon School of Business &amp; Economics</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-role">Co-Chair</div>
+        <div class="committee-name">Shachar Reichman</div>
+        <div class="committee-affiliation">Tel Aviv University</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-role">Co-Chair</div>
+        <div class="committee-name">Daniel Rock</div>
+        <div class="committee-affiliation">The Wharton School, University of Pennsylvania</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-role">Co-Chair</div>
+        <div class="committee-name">Maytal Saar-Tsechansky</div>
+        <div class="committee-affiliation">McCombs School of Business, University of Texas at Austin</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-role">Co-Chair</div>
+        <div class="committee-name">Vilma Todri</div>
+        <div class="committee-affiliation">Goizueta Business School, Emory University</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VENUE ── -->
+<section class="section section--dark" id="venue">
+  <div class="section-inner">
+    <div class="venue-hero reveal">
+      <img src="images/lisbon_panorama.jpg" alt="Lisbon rooftops panorama with Castelo de São Jorge" loading="lazy">
+      <div class="venue-hero-overlay"></div>
+    </div>
+    <div class="reveal">
+      <div class="section-label">Location</div>
+      <h2 class="section-title">Lisbon, Portugal</h2>
+      <p class="section-text">The venue for WISE 2026 in Lisbon will be announced soon. Lisbon, the capital of Portugal, is known for its rich history, stunning architecture, vibrant culture, and world-class cuisine. More details about the conference venue, accommodation, and travel information will be provided as they become available.</p>
+    </div>
+    <div class="venue-features reveal">
+      <div class="venue-feature">
+        <div class="venue-feature-icon">&#9992;</div>
+        <h4>Getting There</h4>
+        <p>Lisbon Humberto Delgado Airport (LIS) is well-connected to major international hubs. The city center is a short metro or taxi ride from the airport.</p>
+      </div>
+      <div class="venue-feature">
+        <div class="venue-feature-icon">&#127968;</div>
+        <h4>Accommodation</h4>
+        <p>Conference hotel details and group booking rates will be shared once the venue is confirmed. Lisbon offers a wide range of accommodation options.</p>
+      </div>
+      <div class="venue-feature">
+        <div class="venue-feature-icon">&#9728;</div>
+        <h4>Climate</h4>
+        <p>December in Lisbon offers mild temperatures around 10–15°C (50–59°F) with occasional rain — pleasant compared to many European winter destinations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REGISTRATION ── -->
+<section class="section" id="registration">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Attend WISE 2026</div>
+      <h2 class="section-title">Registration</h2>
+      <p class="section-text">Registration details and fees for WISE 2026 will be announced soon. Early registration will open on September 30, 2026 and close on October 14, 2026.</p>
+      <div class="reg-note">
+        <strong>&#8505;</strong>
+        <span>Registration fees and the registration portal link will be published here once available.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROGRAM ── -->
+<section class="section section--gray" id="program">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Conference Schedule</div>
+      <h2 class="section-title">Program &amp; Social Events</h2>
+      <p class="section-text">The program and social events for WISE 2026 are being planned. The conference will feature an evening welcome reception on Wednesday, December 16, followed by two full days of paper presentations with assigned discussants on December 17–18. Details will be announced closer to the conference date.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SPONSORS ── -->
+<section class="section section--gray" id="sponsors">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Support WISE 2026</div>
+      <h2 class="section-title">Sponsors</h2>
+      <div class="sponsor-logos">
+        <a href="https://www.ucp.pt" target="_blank" rel="noopener">
+          <img src="images/logo_ucp.png" alt="Católica Lisbon Business &amp; Economics" class="sponsor-logo">
+        </a>
+        <a href="https://www.novasbe.unl.pt" target="_blank" rel="noopener">
+          <img src="images/logo_nova.png" alt="Nova School of Business and Economics" class="sponsor-logo">
+        </a>
+      </div>
+      <p class="section-text" style="margin-top:2rem;">Sponsorship opportunities for WISE 2026 are available. If your institution is interested in sponsoring, please contact the organizing committee.</p>
+      <a href="mailto:wise2026@example.com" class="sponsors-cta">
+        Become a Sponsor
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAST WISE ── -->
+<section class="section section--dark" id="past">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">History</div>
+      <h2 class="section-title">Past WISE Conferences</h2>
+    </div>
+    <div class="past-grid reveal">
+      <div class="past-item"><div class="past-year">2025</div><div class="past-location">Nashville, TN, USA</div></div>
+      <div class="past-item"><div class="past-year">2024</div><div class="past-location">Bangkok, Thailand</div></div>
+      <div class="past-item"><div class="past-year">2023</div><div class="past-location">Hyderabad, India</div></div>
+      <div class="past-item"><div class="past-year">2022</div><div class="past-location">Copenhagen, Denmark</div></div>
+      <div class="past-item"><div class="past-year">2021</div><div class="past-location">Virtual</div></div>
+      <div class="past-item"><div class="past-year">2020</div><div class="past-location">Virtual</div></div>
+      <div class="past-item"><div class="past-year">2019</div><div class="past-location">Munich, Germany</div></div>
+      <div class="past-item"><div class="past-year">2018</div><div class="past-location">San Francisco, CA, USA</div></div>
+      <div class="past-item"><div class="past-year">2017</div><div class="past-location">Seoul, South Korea</div></div>
+      <div class="past-item"><div class="past-year">2016</div><div class="past-location">Dublin, Ireland</div></div>
+      <div class="past-item"><div class="past-year">2015</div><div class="past-location">Dallas, TX, USA</div></div>
+      <div class="past-item"><div class="past-year">2014</div><div class="past-location">Auckland, New Zealand</div></div>
+    </div>
+    <div class="past-grid past-hidden" id="pastMore">
+      <div class="past-item"><div class="past-year">2013</div><div class="past-location">Milan, Italy</div></div>
+      <div class="past-item"><div class="past-year">2012</div><div class="past-location">Orlando, FL, USA</div></div>
+      <div class="past-item"><div class="past-year">2011</div><div class="past-location">Shanghai, China</div></div>
+      <div class="past-item"><div class="past-year">2010</div><div class="past-location">St. Louis, MO, USA</div></div>
+      <div class="past-item"><div class="past-year">2009</div><div class="past-location">Phoenix, AZ, USA</div></div>
+      <div class="past-item"><div class="past-year">2008</div><div class="past-location">Paris, France</div></div>
+      <div class="past-item"><div class="past-year">2007</div><div class="past-location">Montreal, Canada</div></div>
+      <div class="past-item"><div class="past-year">2006</div><div class="past-location">Evanston, IL, USA</div></div>
+      <div class="past-item"><div class="past-year">2005</div><div class="past-location">Las Vegas, NV, USA</div></div>
+      <div class="past-item"><div class="past-year">2004</div><div class="past-location">Washington, DC, USA</div></div>
+      <div class="past-item"><div class="past-year">2003</div><div class="past-location">Seattle, WA, USA</div></div>
+      <div class="past-item"><div class="past-year">2002</div><div class="past-location">Barcelona, Spain</div></div>
+      <div class="past-item"><div class="past-year">2001</div><div class="past-location">New Orleans, LA, USA</div></div>
+      <div class="past-item"><div class="past-year">2000</div><div class="past-location">Brisbane, Australia</div></div>
+      <div class="past-item"><div class="past-year">1999</div><div class="past-location">Charlotte, NC, USA</div></div>
+      <div class="past-item"><div class="past-year">1998</div><div class="past-location">New York, NY, USA</div></div>
+      <div class="past-item"><div class="past-year">1997</div><div class="past-location">Dallas, TX, USA</div></div>
+      <div class="past-item"><div class="past-year">1996</div><div class="past-location">Cleveland, OH, USA</div></div>
+      <div class="past-item"><div class="past-year">1995</div><div class="past-location">Dallas, TX, USA</div></div>
+      <div class="past-item"><div class="past-year">1994</div><div class="past-location">Vancouver, Canada</div></div>
+      <div class="past-item"><div class="past-year">1993</div><div class="past-location">Orlando, FL, USA</div></div>
+      <div class="past-item"><div class="past-year">1992</div><div class="past-location">Dallas, TX, USA</div></div>
+      <div class="past-item"><div class="past-year">1991</div><div class="past-location">New York, NY, USA</div></div>
+      <div class="past-item"><div class="past-year">1990</div><div class="past-location">Copenhagen, Denmark</div></div>
+      <div class="past-item"><div class="past-year">1989</div><div class="past-location">Cambridge, MA, USA</div></div>
+    </div>
+    <button class="past-toggle" id="pastToggle" onclick="togglePast()">Show Full History</button>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">WISE<span>2026</span> &mdash; Lisbon, Portugal</div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#cfp">Call for Papers</a>
+      <a href="#committee">Committee</a>
+      <a href="mailto:wise2026@example.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Workshop on Information Systems and Economics. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// ── Nav scroll behavior ──
+const nav = document.getElementById('nav');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ── Mobile menu ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+function closeMobile() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── Scroll reveal ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+reveals.forEach(el => observer.observe(el));
+
+// ── Past conferences toggle ──
+function togglePast() {
+  const more = document.getElementById('pastMore');
+  const btn = document.getElementById('pastToggle');
+  more.classList.toggle('show');
+  btn.textContent = more.classList.contains('show') ? 'Show Less' : 'Show Full History';
+}
+</script>
+</body>
+</html>
