@@ -1,6 +1,7 @@
 # Secrets — never commit
 .env
 .env.*
+oauth/
 
 # Internal operational tooling — keep off the public GitHub Pages site
 tools/
