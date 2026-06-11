@@ -2,5 +2,8 @@
 .env
 .env.*
 
+# Internal operational tooling — keep off the public GitHub Pages site
+tools/
+
 # OS junk
 .DS_Store
