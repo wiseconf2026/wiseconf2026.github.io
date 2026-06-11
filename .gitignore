@@ -6,5 +6,8 @@ oauth/
 # Internal operational tooling — keep off the public GitHub Pages site
 tools/
 
+# Archived inbox emails — private, local-only
+inbox/
+
 # OS junk
 .DS_Store
