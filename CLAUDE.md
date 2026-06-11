@@ -37,7 +37,7 @@ Single-page static website for WISE 2026 (Workshop on Information Systems and Ec
 ## Conference Details
 - **Dates:** Dec 16 (reception), Dec 17-18 (conference), 2026
 - **Co-Chairs:** Belo (Nova, local), Cheng (LSE), Ferreira (CMU), Godinho de Matos (Católica, local), Reichman (Tel Aviv), Rock (Wharton), Saar-Tsechansky (McCombs), Todri (Emory)
-- **Key deadlines:** Submissions open June 1, deadline Aug 24, decisions Sep 30, early reg Sep 30 - Oct 14
+- **Key deadlines:** Submissions open June 15, deadline Aug 24, decisions Sep 30, early reg Sep 30 - Oct 14
 
 ## Editing Guidelines
 - All content changes are direct HTML edits in `index.html`
