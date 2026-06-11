@@ -3,7 +3,10 @@
 ## Project Overview
 Single-page static website for WISE 2026 (Workshop on Information Systems and Economics), held December 16-18, 2026 in Lisbon, Portugal. Hosted via GitHub Pages from the `main` branch.
 
-**Repo:** https://github.com/MiguelGodinhoMatos/conference_wise2026
+**Repo:** https://github.com/wiseconf2026/wiseconf2026.github.io
+**Live site:** https://wiseconf2026.github.io/
+
+> ⚠️ **Account ownership:** This project lives under the dedicated **`wiseconf2026`** GitHub account — NOT Miguel's personal `MiguelGodinhoMatos` account. The old personal copy (`MiguelGodinhoMatos/conference_wise2026`) has been retired. Always push to the `wiseconf2026` remote.
 
 ## Architecture
 - **Single HTML file** (`index.html`) with all CSS and JS inline — no build step, no framework
@@ -33,7 +36,7 @@ Single-page static website for WISE 2026 (Workshop on Information Systems and Ec
 
 ## Conference Details
 - **Dates:** Dec 16 (reception), Dec 17-18 (conference), 2026
-- **Co-Chairs:** Belo (Nova, local), Ferreira (CMU), Godinho de Matos (Católica, local), Reichman (Tel Aviv), Rock (Wharton), Saar-Tsechansky (McCombs), Todri (Emory)
+- **Co-Chairs:** Belo (Nova, local), Cheng (LSE), Ferreira (CMU), Godinho de Matos (Católica, local), Reichman (Tel Aviv), Rock (Wharton), Saar-Tsechansky (McCombs), Todri (Emory)
 - **Key deadlines:** Submissions open June 1, deadline Aug 24, decisions Sep 30, early reg Sep 30 - Oct 14
 
 ## Editing Guidelines
@@ -41,4 +44,15 @@ Single-page static website for WISE 2026 (Workshop on Information Systems and Ec
 - Keep images optimized (800px wide for strip, 1200px for panorama)
 - Sponsor logos go in `images/logo_*.png` — use dark logos on the gray sponsor section background
 - When adding committee members or sponsors, maintain alphabetical ordering
-- Push directly to `main` for deployment
+- Push directly to `main` for deployment (GitHub Pages rebuilds in ~1 min)
+
+## Deployment & Auth
+- `origin` points to `https://github.com/wiseconf2026/wiseconf2026.github.io.git` (no token embedded).
+- The local machine's default `gh` login is Miguel's **personal** account, which does **not** have write access to the `wiseconf2026` repo. So a plain `git push` will fail.
+- Push using the `wiseconf2026` admin token stored in `.env` (var `GITHUB_WISECONF2026`, gitignored):
+  ```bash
+  set -a && source .env && set +a
+  git push "https://wiseconf2026:${GITHUB_WISECONF2026}@github.com/wiseconf2026/wiseconf2026.github.io.git" main:main
+  ```
+  When printing push output, redact the token: `sed -E "s/wiseconf2026:[^@]+@/[redacted]@/g"`.
+- Never write the token into `.git/config` or any committed file — the repo folder is inside Dropbox.
