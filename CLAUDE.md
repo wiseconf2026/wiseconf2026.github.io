@@ -46,7 +46,11 @@ Single-page static website for WISE 2026 (Workshop on Information Systems and Ec
 - Sponsor logos go in `images/logo_*.png` — use dark logos on the gray sponsor section background
 - When adding committee members or sponsors, maintain alphabetical ordering
 - Push directly to `main` for deployment (GitHub Pages rebuilds in ~1 min)
-- **CFP PDF** (`WISE-2026-Call-for-Papers.pdf`, linked from the Call for Papers section) is generated from a standalone branded HTML rendered with headless Chrome: `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=8000 --print-to-pdf=OUT.pdf file://SOURCE.html`. Keep the PDF's content in sync with the on-page CFP and the timeline dates.
+- **CFP PDF** (`WISE-2026-Call-for-Papers.pdf`, linked from the Call for Papers section) is generated from its committed source `WISE-2026-Call-for-Papers-source.html` (a standalone branded HTML, kept in the repo so the PDF is always regenerable) rendered with headless Chrome:
+  ```bash
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=8000 --print-to-pdf="WISE-2026-Call-for-Papers.pdf" "file://$(pwd)/WISE-2026-Call-for-Papers-source.html"
+  ```
+  Edit the `-source.html`, regenerate, and commit both. Keep the PDF's content in sync with the on-page CFP and the timeline dates.
 
 ## Deployment & Auth
 - `origin` points to `https://github.com/wiseconf2026/wiseconf2026.github.io.git` (no token embedded).
