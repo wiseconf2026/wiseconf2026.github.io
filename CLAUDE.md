@@ -37,7 +37,8 @@ Single-page static website for WISE 2026 (Workshop on Information Systems and Ec
 ## Conference Details
 - **Dates:** Dec 16 (reception), Dec 17-18 (conference), 2026
 - **Co-Chairs:** Belo (Nova, local), Cheng (LSE), Ferreira (CMU), Godinho de Matos (Católica, local), Reichman (Tel Aviv), Rock (Wharton), Saar-Tsechansky (McCombs), Todri (Emory)
-- **Key deadlines:** Submissions open June 15, deadline Aug 24, decisions Sep 30, early reg Sep 30 - Oct 14
+- **Key deadlines:** Submissions open June 15; deadline Aug 10 (11:59 PM Pacific); decisions Sep 18; early reg deadline Oct 15, regular Nov 1, late Nov 30
+- **Source of truth for the CFP:** the official Google Doc (export as txt/PDF to get clean content — the body export can leak co-author *comments* as footnotes, so always strip trailing `[a]`/`[b]` comment text and reaction lines)
 
 ## Editing Guidelines
 - All content changes are direct HTML edits in `index.html`
@@ -45,6 +46,7 @@ Single-page static website for WISE 2026 (Workshop on Information Systems and Ec
 - Sponsor logos go in `images/logo_*.png` — use dark logos on the gray sponsor section background
 - When adding committee members or sponsors, maintain alphabetical ordering
 - Push directly to `main` for deployment (GitHub Pages rebuilds in ~1 min)
+- **CFP PDF** (`WISE-2026-Call-for-Papers.pdf`, linked from the Call for Papers section) is generated from a standalone branded HTML rendered with headless Chrome: `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --no-pdf-header-footer --virtual-time-budget=8000 --print-to-pdf=OUT.pdf file://SOURCE.html`. Keep the PDF's content in sync with the on-page CFP and the timeline dates.
 
 ## Deployment & Auth
 - `origin` points to `https://github.com/wiseconf2026/wiseconf2026.github.io.git` (no token embedded).

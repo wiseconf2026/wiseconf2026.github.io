@@ -500,6 +500,72 @@ body {
   flex-shrink: 0;
 }
 
+.cfp-themes {
+  margin-top: 2rem;
+  position: relative;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.cfp-theme {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(200,150,62,0.45);
+}
+
+.cfp-theme h4 {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 0.3rem;
+}
+
+.cfp-theme p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.cfp-welcome {
+  margin-top: 2rem;
+  color: rgba(255,255,255,0.8) !important;
+  font-style: italic;
+}
+
+.cfp-actions {
+  margin-top: 2.5rem;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+}
+
+.cfp-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.cfp-download:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.cfp-actions .cfp-actions-note {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.85rem;
+}
+
 /* ── COMMITTEE ── */
 .committee-grid {
   display: grid;
@@ -1010,27 +1076,33 @@ body {
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">August 24, 2026</div>
+        <div class="timeline-date">August 10, 2026</div>
         <div class="timeline-event">Submission Deadline</div>
-        <div class="timeline-note">11:59 PM Anywhere on Earth (AoE)</div>
+        <div class="timeline-note">11:59 PM Pacific Time</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">September 30, 2026</div>
+        <div class="timeline-date">September 18, 2026</div>
         <div class="timeline-event">Decision Notifications</div>
         <div class="timeline-note">Authors will be notified of acceptance decisions</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">September 30, 2026</div>
-        <div class="timeline-event">Early Registration Opens</div>
-        <div class="timeline-note">Discounted registration rates available</div>
+        <div class="timeline-date">October 15, 2026</div>
+        <div class="timeline-event">Early Registration Deadline</div>
+        <div class="timeline-note">Discounted registration rates available until this date</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">October 14, 2026</div>
-        <div class="timeline-event">Early Registration Closes</div>
-        <div class="timeline-note">Standard registration rates apply after this date</div>
+        <div class="timeline-date">November 1, 2026</div>
+        <div class="timeline-event">Regular Registration Deadline</div>
+        <div class="timeline-note">Standard registration rates apply</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">November 30, 2026</div>
+        <div class="timeline-event">Late Registration</div>
+        <div class="timeline-note">Final deadline for conference registration</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
@@ -1058,20 +1130,42 @@ body {
     <div class="cfp-card reveal">
       <div class="section-label">Topics of Interest</div>
       <h3>WISE 2026 welcomes original research</h3>
-      <p>The Call for Papers for WISE 2026 will be available soon. WISE welcomes original research papers that address topics related to the economics of information systems. Submissions should be extended abstracts. Detailed submission guidelines will be posted when the submission portal opens on June 15, 2026.</p>
-      <div class="cfp-topics">
-        <div class="cfp-topic">Economics of Information Systems</div>
-        <div class="cfp-topic">Digital Platforms &amp; Marketplaces</div>
-        <div class="cfp-topic">AI &amp; Machine Learning in Business</div>
-        <div class="cfp-topic">Digital Markets &amp; Competition</div>
-        <div class="cfp-topic">Privacy &amp; Security Economics</div>
-        <div class="cfp-topic">Economics of Innovation</div>
-        <div class="cfp-topic">Digital Transformation</div>
-        <div class="cfp-topic">Online Labor Markets</div>
-        <div class="cfp-topic">Social Media &amp; Networks</div>
-        <div class="cfp-topic">Healthcare IT Economics</div>
-        <div class="cfp-topic">FinTech &amp; Crypto Economics</div>
-        <div class="cfp-topic">Generative AI &amp; Economics</div>
+      <p>The 37th Workshop on Information Systems and Economics (WISE) is the premier academic forum for research that examines information systems through the lens of economics. The workshop focuses on how digital technologies are reshaping economic activity, organizational decision-making, market structures, and society. We invite research that examines the incentives, mechanisms, and consequences associated with the development, deployment, diffusion, and use of information technologies.</p>
+      <p style="margin-top:1.2rem;">More specifically, we encourage submissions in the following thematic areas:</p>
+      <div class="cfp-themes">
+        <div class="cfp-theme">
+          <h4>AI, Automation, and Economic Transformation</h4>
+          <p>The economic implications of artificial intelligence, generative AI, agentic systems, automation, and algorithmic decision-making for firms, markets, workers, and consumers.</p>
+        </div>
+        <div class="cfp-theme">
+          <h4>Digital Platforms, Markets, and Ecosystems</h4>
+          <p>Digital platforms, online marketplaces, digital goods, ecosystem governance, pricing, competition, business models, and value creation in digital environments.</p>
+        </div>
+        <div class="cfp-theme">
+          <h4>Data, Analytics, and Digital Experimentation</h4>
+          <p>The role of data, analytics, machine learning, personalization, recommender systems, and digital experiments in shaping managerial, consumer, and policy decisions.</p>
+        </div>
+        <div class="cfp-theme">
+          <h4>Trust, Safety, Privacy, and Responsible Technology</h4>
+          <p>Cybersecurity, privacy, digital identity, online safety, AI governance, fairness, bias, transparency, accountability, and the regulatory challenges associated with digital technologies.</p>
+        </div>
+        <div class="cfp-theme">
+          <h4>Work, Organizations, and Human–Technology Interaction</h4>
+          <p>How digital technologies affect work, collaboration, productivity, organizational design, human capital, human–AI collaboration, and the future of digital organizations.</p>
+        </div>
+        <div class="cfp-theme">
+          <h4>Technology, Society, and Sustainability</h4>
+          <p>The broader societal and environmental implications of information technologies, including digital inclusion, healthcare IT, sustainability, misinformation, and the public-policy implications of digital transformation.</p>
+        </div>
+        <div class="cfp-theme">
+          <h4>FinTech, Digital Currencies, and the Future of Finance</h4>
+          <p>Financial technologies, digital payments, cryptocurrencies, stablecoins, central bank digital currencies, tokenization, decentralized finance, and blockchain-based systems, including their implications for market design, financial intermediation, regulation, and access to financial services.</p>
+        </div>
+      </div>
+      <p class="cfp-welcome">We welcome high-quality theoretical, empirical, experimental, and computational research on these and related topics in the economics of information systems.</p>
+      <div class="cfp-actions">
+        <a class="cfp-download" href="WISE-2026-Call-for-Papers.pdf" target="_blank" rel="noopener">&#8595;&nbsp; Download the Call for Papers (PDF)</a>
+        <span class="cfp-actions-note">Submission portal opens June 15, 2026</span>
       </div>
     </div>
   </div>
@@ -1167,7 +1261,7 @@ body {
     <div class="reveal">
       <div class="section-label">Attend WISE 2026</div>
       <h2 class="section-title">Registration</h2>
-      <p class="section-text">Registration details and fees for WISE 2026 will be announced soon. Early registration will open on September 30, 2026 and close on October 14, 2026.</p>
+      <p class="section-text">Registration details and fees for WISE 2026 will be announced soon. Registration deadlines: early registration through <strong>October 15, 2026</strong>, regular registration through <strong>November 1, 2026</strong>, and late registration through <strong>November 30, 2026</strong>.</p>
       <div class="reg-note">
         <strong>&#8505;</strong>
         <span>Registration fees and the registration portal link will be published here once available.</span>
