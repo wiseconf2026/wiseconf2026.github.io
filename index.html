@@ -542,22 +542,38 @@ body {
   align-items: center;
 }
 
+.cfp-submit,
 .cfp-download {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: var(--gold);
-  color: var(--navy);
   font-weight: 600;
   font-size: 0.9rem;
   padding: 0.85rem 1.6rem;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.25s, transform 0.25s;
+  transition: background 0.25s, transform 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.cfp-submit {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.cfp-submit:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.cfp-download {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid rgba(200,150,62,0.55);
 }
 
 .cfp-download:hover {
-  background: var(--gold-light);
+  border-color: var(--gold);
+  color: var(--gold-light);
   transform: translateY(-2px);
 }
 
@@ -1163,7 +1179,9 @@ body {
         </div>
       </div>
       <p class="cfp-welcome">We welcome high-quality theoretical, empirical, experimental, and computational research on these and related topics in the economics of information systems.</p>
+      <p style="margin-top:2rem;">Papers are submitted and managed through our conference submission system, <strong>PaperFox</strong>. The submission portal opens on June 15, 2026.</p>
       <div class="cfp-actions">
+        <a class="cfp-submit" href="https://www.paperfox.ai/conference/wise2026/submit" target="_blank" rel="noopener">Submit a Paper &#8594;</a>
         <a class="cfp-download" href="WISE-2026-Call-for-Papers.pdf" target="_blank" rel="noopener">&#8595;&nbsp; Download the Call for Papers (PDF)</a>
         <span class="cfp-actions-note">Submission portal opens June 15, 2026</span>
       </div>
