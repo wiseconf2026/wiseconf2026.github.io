@@ -439,6 +439,67 @@ body {
   color: var(--text-light);
 }
 
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  padding: 1.6rem 1.8rem;
+  background: var(--white);
+  border: 1px solid rgba(200,150,62,0.35);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  box-shadow: 0 2px 24px rgba(10,22,40,0.07);
+}
+
+.notice-label {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--gold);
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.notice-body { min-width: 0; }
+
+.notice-title {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: var(--text);
+  margin-bottom: 0.45rem;
+}
+
+.notice-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-light);
+}
+
+.timeline-badge {
+  display: inline-block;
+  margin-left: 0.55rem;
+  padding: 0.15rem 0.5rem;
+  background: var(--gold);
+  color: var(--white);
+  border-radius: 3px;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+}
+
+.timeline-date--old {
+  margin-right: 0.45rem;
+  color: var(--text-light);
+  font-weight: 400;
+  text-decoration: line-through;
+  opacity: 0.65;
+}
+
 /* ── CALL FOR PAPERS ── */
 .cfp-card {
   background: var(--navy);
@@ -621,6 +682,33 @@ body {
   box-shadow: 0 12px 40px rgba(0,0,0,0.08);
 }
 
+a.committee-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.committee-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+a.committee-card .committee-name::after {
+  content: '\2197';
+  margin-left: 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  vertical-align: 2px;
+  color: var(--gold);
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+a.committee-card:hover .committee-name::after,
+a.committee-card:focus-visible .committee-name::after {
+  opacity: 1;
+}
+
 .committee-name {
   font-family: var(--serif);
   font-size: 1.15rem;
@@ -705,9 +793,37 @@ body {
   transition: border-color 0.3s, background 0.3s;
 }
 
-.past-item:hover {
+a.past-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.past-item:hover,
+a.past-item:focus-visible {
   border-color: var(--gold);
   background: rgba(200,150,62,0.05);
+}
+
+a.past-item:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+a.past-item .past-year::after {
+  content: '\2197';
+  margin-left: 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  vertical-align: 2px;
+  color: var(--gold);
+  opacity: 0.45;
+  transition: opacity 0.3s;
+}
+
+a.past-item:hover .past-year::after,
+a.past-item:focus-visible .past-year::after {
+  opacity: 1;
 }
 
 .past-year {
@@ -938,6 +1054,15 @@ body {
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
+  .notice {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.9rem;
+    padding: 1.4rem 1.5rem;
+  }
+
+  .notice-label { align-self: flex-start; margin-top: 0; }
+
   .section { padding: 4rem 1.5rem; }
 
   .about-grid {
@@ -1101,6 +1226,13 @@ body {
       <div class="section-label">Important Dates</div>
       <h2 class="section-title">Key Deadlines</h2>
     </div>
+    <div class="notice reveal">
+      <span class="notice-label">New</span>
+      <div class="notice-body">
+        <div class="notice-title">Decision notifications moved to September 25, 2026</div>
+        <p class="notice-text">We received over 400 submissions this year — an extraordinary response to our call for papers. Processing them properly requires additional time, so acceptance decisions will now be communicated by <strong>September 25, 2026</strong>, rather than September 18. Thank you for your patience.</p>
+      </div>
+    </div>
     <div class="timeline reveal">
       <div class="timeline-item">
         <div class="timeline-dot"></div>
@@ -1116,9 +1248,9 @@ body {
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-date">September 18, 2026</div>
+        <div class="timeline-date"><span class="timeline-date--old">September 18</span>September 25, 2026<span class="timeline-badge">Updated</span></div>
         <div class="timeline-event">Decision Notifications</div>
-        <div class="timeline-note">Authors will be notified of acceptance decisions</div>
+        <div class="timeline-note">We received over 400 submissions and need additional time to process them. Authors will be notified of acceptance decisions by September 25.</div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
@@ -1223,46 +1355,46 @@ body {
       <h2 class="section-title">Conference Co-Chairs</h2>
     </div>
     <div class="committee-grid reveal">
-      <div class="committee-card">
+      <a class="committee-card" href="https://www.novasbe.unl.pt/en/faculty-research/faculty/faculty-detail/id/1210/rodrigo-belo" target="_blank" rel="noopener noreferrer">
         <div class="committee-role">Local Organizer &amp; Co-Chair</div>
         <div class="committee-name">Rodrigo Belo</div>
         <div class="committee-affiliation">Nova School of Business &amp; Economics</div>
-      </div>
-      <div class="committee-card">
+      </a>
+      <a class="committee-card" href="https://www.lse.ac.uk/people/aaron-cheng" target="_blank" rel="noopener noreferrer">
         <div class="committee-role">Co-Chair</div>
         <div class="committee-name">Aaron Cheng</div>
         <div class="committee-affiliation">Department of Management, London School of Economics and Political Science</div>
-      </div>
-      <div class="committee-card">
+      </a>
+      <a class="committee-card" href="https://www.heinz.cmu.edu/faculty-research/profiles/ferreira-pedro/" target="_blank" rel="noopener noreferrer">
         <div class="committee-role">Co-Chair</div>
         <div class="committee-name">Pedro Ferreira</div>
         <div class="committee-affiliation">Heinz College, Carnegie Mellon University</div>
-      </div>
-      <div class="committee-card">
+      </a>
+      <a class="committee-card" href="https://www.clsbe.lisboa.ucp.pt/person/miguel-godinho-de-matos" target="_blank" rel="noopener noreferrer">
         <div class="committee-role">Local Organizer &amp; Co-Chair</div>
         <div class="committee-name">Miguel Godinho de Matos</div>
         <div class="committee-affiliation">Católica Lisbon School of Business &amp; Economics</div>
-      </div>
-      <div class="committee-card">
+      </a>
+      <a class="committee-card" href="https://en-coller.tau.ac.il/profile/sr" target="_blank" rel="noopener noreferrer">
         <div class="committee-role">Co-Chair</div>
         <div class="committee-name">Shachar Reichman</div>
         <div class="committee-affiliation">Tel Aviv University</div>
-      </div>
-      <div class="committee-card">
+      </a>
+      <a class="committee-card" href="https://oid.wharton.upenn.edu/profile/rockdi/" target="_blank" rel="noopener noreferrer">
         <div class="committee-role">Co-Chair</div>
         <div class="committee-name">Daniel Rock</div>
         <div class="committee-affiliation">The Wharton School, University of Pennsylvania</div>
-      </div>
-      <div class="committee-card">
+      </a>
+      <a class="committee-card" href="https://www.mccombs.utexas.edu/faculty-and-research/faculty-directory/maytal-saar-tsechansky/" target="_blank" rel="noopener noreferrer">
         <div class="committee-role">Co-Chair</div>
         <div class="committee-name">Maytal Saar-Tsechansky</div>
         <div class="committee-affiliation">McCombs School of Business, University of Texas at Austin</div>
-      </div>
-      <div class="committee-card">
+      </a>
+      <a class="committee-card" href="https://goizueta.emory.edu/faculty/profiles/vilma-todri" target="_blank" rel="noopener noreferrer">
         <div class="committee-role">Co-Chair</div>
         <div class="committee-name">Vilma Todri</div>
         <div class="committee-affiliation">Goizueta Business School, Emory University</div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1356,17 +1488,17 @@ body {
       <h2 class="section-title">Past WISE Conferences</h2>
     </div>
     <div class="past-grid reveal">
-      <div class="past-item"><div class="past-year">2025</div><div class="past-location">Nashville, TN, USA</div></div>
-      <div class="past-item"><div class="past-year">2024</div><div class="past-location">Bangkok, Thailand</div></div>
-      <div class="past-item"><div class="past-year">2023</div><div class="past-location">Hyderabad, India</div></div>
-      <div class="past-item"><div class="past-year">2022</div><div class="past-location">Copenhagen, Denmark</div></div>
-      <div class="past-item"><div class="past-year">2021</div><div class="past-location">Virtual</div></div>
+      <a class="past-item" href="https://sites.google.com/view/wise2025/home" target="_blank" rel="noopener noreferrer"><div class="past-year">2025</div><div class="past-location">Nashville, TN, USA</div></a>
+      <a class="past-item" href="https://sites.google.com/view/wiseconf2024/" target="_blank" rel="noopener noreferrer"><div class="past-year">2024</div><div class="past-location">Bangkok, Thailand</div></a>
+      <a class="past-item" href="https://sites.google.com/view/stagewise2023/home" target="_blank" rel="noopener noreferrer"><div class="past-year">2023</div><div class="past-location">Hyderabad, India</div></a>
+      <a class="past-item" href="http://2022.wiseconf.org" target="_blank" rel="noopener noreferrer"><div class="past-year">2022</div><div class="past-location">Copenhagen, Denmark</div></a>
+      <div class="past-item"><div class="past-year">2021</div><div class="past-location">Austin, TX, USA</div></div>
       <div class="past-item"><div class="past-year">2020</div><div class="past-location">Virtual</div></div>
       <div class="past-item"><div class="past-year">2019</div><div class="past-location">Munich, Germany</div></div>
-      <div class="past-item"><div class="past-year">2018</div><div class="past-location">San Francisco, CA, USA</div></div>
-      <div class="past-item"><div class="past-year">2017</div><div class="past-location">Seoul, South Korea</div></div>
+      <a class="past-item" href="http://2018.wiseconf.org/" target="_blank" rel="noopener noreferrer"><div class="past-year">2018</div><div class="past-location">San Francisco, CA, USA</div></a>
+      <a class="past-item" href="https://wiseconf2017.wixsite.com/wise" target="_blank" rel="noopener noreferrer"><div class="past-year">2017</div><div class="past-location">Seoul, South Korea</div></a>
       <div class="past-item"><div class="past-year">2016</div><div class="past-location">Dublin, Ireland</div></div>
-      <div class="past-item"><div class="past-year">2015</div><div class="past-location">Dallas, TX, USA</div></div>
+      <a class="past-item" href="https://blogs.ubc.ca/wise2015/" target="_blank" rel="noopener noreferrer"><div class="past-year">2015</div><div class="past-location">Dallas, TX, USA</div></a>
       <div class="past-item"><div class="past-year">2014</div><div class="past-location">Auckland, New Zealand</div></div>
     </div>
     <div class="past-grid past-hidden" id="pastMore">
@@ -1374,7 +1506,7 @@ body {
       <div class="past-item"><div class="past-year">2012</div><div class="past-location">Orlando, FL, USA</div></div>
       <div class="past-item"><div class="past-year">2011</div><div class="past-location">Shanghai, China</div></div>
       <div class="past-item"><div class="past-year">2010</div><div class="past-location">St. Louis, MO, USA</div></div>
-      <div class="past-item"><div class="past-year">2009</div><div class="past-location">Phoenix, AZ, USA</div></div>
+      <a class="past-item" href="http://2009.wiseconf.org/" target="_blank" rel="noopener noreferrer"><div class="past-year">2009</div><div class="past-location">Phoenix, AZ, USA</div></a>
       <div class="past-item"><div class="past-year">2008</div><div class="past-location">Paris, France</div></div>
       <div class="past-item"><div class="past-year">2007</div><div class="past-location">Montreal, Canada</div></div>
       <div class="past-item"><div class="past-year">2006</div><div class="past-location">Evanston, IL, USA</div></div>
@@ -1385,10 +1517,10 @@ body {
       <div class="past-item"><div class="past-year">2001</div><div class="past-location">New Orleans, LA, USA</div></div>
       <div class="past-item"><div class="past-year">2000</div><div class="past-location">Brisbane, Australia</div></div>
       <div class="past-item"><div class="past-year">1999</div><div class="past-location">Charlotte, NC, USA</div></div>
-      <div class="past-item"><div class="past-year">1998</div><div class="past-location">New York, NY, USA</div></div>
-      <div class="past-item"><div class="past-year">1997</div><div class="past-location">Dallas, TX, USA</div></div>
+      <div class="past-item"><div class="past-year">1998</div><div class="past-location">Helsinki, Finland</div></div>
+      <div class="past-item"><div class="past-year">1997</div><div class="past-location">Atlanta, GA, USA</div></div>
       <div class="past-item"><div class="past-year">1996</div><div class="past-location">Cleveland, OH, USA</div></div>
-      <div class="past-item"><div class="past-year">1995</div><div class="past-location">Dallas, TX, USA</div></div>
+      <div class="past-item"><div class="past-year">1995</div><div class="past-location">Amsterdam, Netherlands</div></div>
       <div class="past-item"><div class="past-year">1994</div><div class="past-location">Vancouver, Canada</div></div>
       <div class="past-item"><div class="past-year">1993</div><div class="past-location">Orlando, FL, USA</div></div>
       <div class="past-item"><div class="past-year">1992</div><div class="past-location">Dallas, TX, USA</div></div>
