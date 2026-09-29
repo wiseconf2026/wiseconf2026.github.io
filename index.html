@@ -93,6 +93,13 @@ body {
 
 .nav-links a:hover { color: var(--gold); }
 
+.nav-links a { white-space: nowrap; }
+
+@media (max-width: 1180px) {
+  .nav-links { gap: 1.25rem; }
+  .nav-links a { font-size: 0.72rem; letter-spacing: 0.06em; }
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -763,7 +770,303 @@ a.committee-card:focus-visible .committee-name::after {
   line-height: 1.6;
 }
 
+.venue-address {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+}
+
+.venue-address a {
+  color: var(--gold-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(221,183,106,0.4);
+}
+
+.venue-address a:hover { border-color: var(--gold-light); }
+
+.venue-feature a {
+  color: var(--gold-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(221,183,106,0.4);
+}
+
+.explore {
+  margin-top: 4rem;
+}
+
+.explore h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.explore > p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.55);
+  max-width: 700px;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.explore-item {
+  padding: 1.4rem 1.5rem;
+  border-top: 2px solid var(--gold);
+  background: rgba(255,255,255,0.03);
+  border-radius: 0 0 8px 8px;
+}
+
+.explore-item h4 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 0.4rem;
+}
+
+.explore-item p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ── ACCOMMODATION ── */
+.stay-intro p + p { margin-top: 1rem; }
+
+.stay-area {
+  margin-top: 4rem;
+}
+
+.stay-area-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(200,150,62,0.35);
+}
+
+.stay-area-head h3 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.stay-area-count {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.stay-area-desc {
+  margin-top: 0.9rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-light);
+  max-width: 700px;
+}
+
+.hotel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.hotel-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hotel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.hotel-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.hotel-photo {
+  aspect-ratio: 16 / 10;
+  max-width: 100%;
+  background: var(--warm-gray);
+  overflow: hidden;
+}
+
+.hotel-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s;
+}
+
+.hotel-card:hover .hotel-photo img { transform: scale(1.04); }
+
+.hotel-body {
+  padding: 1.4rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.hotel-stars {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+
+.hotel-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.hotel-name::after {
+  content: '\2197';
+  margin-left: 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  vertical-align: 2px;
+  color: var(--gold);
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.hotel-card:hover .hotel-name::after { opacity: 1; }
+
+.hotel-location {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.hotel-distances {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 1.1rem;
+}
+
+.hotel-distance {
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(0,0,0,0.07);
+}
+
+.hotel-distance-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.hotel-distance-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.hotel-distance-value small {
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
 /* ── REGISTRATION ── */
+.reg-fees {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 2.5rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.reg-fees th,
+.reg-fees td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.reg-fees thead th {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  border-bottom: 2px solid var(--gold);
+  vertical-align: bottom;
+}
+
+.reg-fees thead th span {
+  display: block;
+  margin-top: 0.2rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 0.8rem;
+}
+
+.reg-fees tbody th {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.reg-fees td {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.reg-fees .reg-early {
+  background: rgba(200,150,62,0.07);
+}
+
+.reg-fees-wrap {
+  overflow-x: auto;
+}
+
+.reg-letter {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  max-width: 640px;
+}
+
+.reg-letter a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(200,150,62,0.4);
+}
+
 .reg-note {
   display: inline-flex;
   align-items: center;
@@ -1050,6 +1353,11 @@ a.past-item:focus-visible .past-year::after {
 }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
+
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
@@ -1086,6 +1394,10 @@ a.past-item:focus-visible .past-year::after {
     gap: 1rem;
   }
 
+  .explore-grid { grid-template-columns: 1fr 1fr; }
+
+  .stay-area { margin-top: 3rem; }
+
   .past-grid { grid-template-columns: 1fr 1fr; }
 
   .hero-meta { gap: 2rem; }
@@ -1100,6 +1412,9 @@ a.past-item:focus-visible .past-year::after {
   .hero-meta { flex-direction: column; gap: 1.5rem; }
   .wise-logo { height: 50px; }
   .venue-hero { height: 200px; }
+  .explore-grid { grid-template-columns: 1fr; }
+  .hotel-grid { grid-template-columns: 1fr; }
+  .reg-fees th, .reg-fees td { padding: 0.85rem 0.7rem; }
   .sponsor-logo { height: 35px; }
 }
 </style>
@@ -1116,6 +1431,7 @@ a.past-item:focus-visible .past-year::after {
       <li><a href="#cfp">Call for Papers</a></li>
       <li><a href="#committee">Committee</a></li>
       <li><a href="#venue">Venue</a></li>
+      <li><a href="#accommodation">Hotels</a></li>
       <li><a href="#registration">Registration</a></li>
       <li><a href="#past">Past WISE</a></li>
     </ul>
@@ -1131,6 +1447,7 @@ a.past-item:focus-visible .past-year::after {
   <a href="#cfp" onclick="closeMobile()">Call for Papers</a>
   <a href="#committee" onclick="closeMobile()">Committee</a>
   <a href="#venue" onclick="closeMobile()">Venue</a>
+  <a href="#accommodation" onclick="closeMobile()">Accommodation</a>
   <a href="#registration" onclick="closeMobile()">Registration</a>
   <a href="#program" onclick="closeMobile()">Program</a>
   <a href="#sponsors" onclick="closeMobile()">Sponsors</a>
@@ -1408,24 +1725,246 @@ a.past-item:focus-visible .past-year::after {
     </div>
     <div class="reveal">
       <div class="section-label">Location</div>
-      <h2 class="section-title">Lisbon, Portugal</h2>
-      <p class="section-text">The venue for WISE 2026 in Lisbon will be announced soon. Lisbon, the capital of Portugal, is known for its rich history, stunning architecture, vibrant culture, and world-class cuisine. More details about the conference venue, accommodation, and travel information will be provided as they become available.</p>
+      <h2 class="section-title">Nova SBE, Carcavelos</h2>
+      <p class="section-text">WISE 2026 will take place at the campus of Nova School of Business &amp; Economics (Nova SBE) in Carcavelos, a beachside town on the Lisbon coast, right next to the beach and about 20 kilometres from Lisbon&#8217;s city centre &mdash; halfway between downtown Lisbon and the twin towns of Cascais and Estoril.</p>
+      <div class="venue-address">
+        <span>Nova SBE &middot; Rua da Holanda, 1 &middot; 2775-405 Carcavelos, Portugal</span>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Nova+SBE+Rua+da+Holanda+1+Carcavelos" target="_blank" rel="noopener noreferrer">Open in Maps &#8599;</a>
+      </div>
     </div>
     <div class="venue-features reveal">
       <div class="venue-feature">
         <div class="venue-feature-icon">&#9992;</div>
         <h4>Getting There</h4>
-        <p>Lisbon Humberto Delgado Airport (LIS) is well-connected to major international hubs. The city center is a short metro or taxi ride from the airport.</p>
+        <p>Lisbon Humberto Delgado Airport (LIS) is about 30 minutes from campus by car. Ride-hailing services such as Uber and Bolt are widely available and inexpensive. By train, the Cascais line from Cais do Sodr&eacute; in central Lisbon stops at Carcavelos.</p>
       </div>
       <div class="venue-feature">
         <div class="venue-feature-icon">&#127968;</div>
         <h4>Accommodation</h4>
-        <p>Conference hotel details and group booking rates will be shared once the venue is confirmed. Lisbon offers a wide range of accommodation options.</p>
+        <p>We have selected hotels in Carcavelos &amp; Oeiras, Lisbon (Bel&eacute;m) and Cascais / Estoril, across a range of styles and budgets. <a href="#accommodation">See recommended hotels &rarr;</a></p>
       </div>
       <div class="venue-feature">
         <div class="venue-feature-icon">&#9728;</div>
         <h4>Climate</h4>
-        <p>December in Lisbon offers mild temperatures around 10–15°C (50–59°F) with occasional rain — pleasant compared to many European winter destinations.</p>
+        <p>December in Lisbon offers mild temperatures around 10&ndash;15&deg;C (50&ndash;59&deg;F) with occasional rain &mdash; pleasant compared to many European winter destinations.</p>
+      </div>
+    </div>
+    <div class="explore reveal">
+      <h3>Make the Most of Your Trip</h3>
+      <p>If you are extending your stay beyond the conference, a few highlights within easy reach of the venue:</p>
+      <div class="explore-grid">
+        <div class="explore-item">
+          <h4>Alfama &amp; S&atilde;o Jorge Castle</h4>
+          <p>Lisbon&#8217;s oldest neighbourhood, with Fado houses and winding alleys below the medieval castle and its views over the city. Ride the historic Tram 28 through it.</p>
+        </div>
+        <div class="explore-item">
+          <h4>Bel&eacute;m</h4>
+          <p>Where the explorers set sail: Bel&eacute;m Tower, the Jer&oacute;nimos Monastery, MAAT &mdash; and the original <em>past&eacute;is de Bel&eacute;m</em>.</p>
+        </div>
+        <div class="explore-item">
+          <h4>Cascais</h4>
+          <p>A former fishing village turned seaside resort, with a historic old town and coastal promenades a short ride from campus.</p>
+        </div>
+        <div class="explore-item">
+          <h4>Sintra</h4>
+          <p>Romantic palaces in misty, forested hills &mdash; about 40 minutes by direct train from Lisbon&#8217;s Rossio station.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ACCOMMODATION ── -->
+<section class="section section--warm" id="accommodation">
+  <div class="section-inner">
+    <div class="reveal stay-intro">
+      <div class="section-label">Where to Stay</div>
+      <h2 class="section-title">Recommended Accommodation</h2>
+      <p class="section-text">The Nova SBE campus is located in Carcavelos, right next to the beach and about 20 kilometres from Lisbon&#8217;s city centre. When choosing where to stay, participants may therefore wish to consider what matters most to them during their visit. Staying in Lisbon makes it easy to enjoy the city in the evenings, with a short daily trip to the campus. Staying in Carcavelos, Oeiras or Cascais puts you within minutes of the venue and the coast, but further from the city.</p>
+      <p class="section-text">Getting around is simple and inexpensive: ride-hailing services such as Uber and Bolt are widely available and, under normal conditions, considerably cheaper than in the US or Northern Europe.</p>
+      <p class="section-text">To help you plan your stay, we have put together a selection of hotels across the Lisbon, Oeiras and Cascais areas, grouped by location and covering a range of styles and budgets.</p>
+    </div>
+    <div class="stay-area reveal">
+      <div class="stay-area-head">
+        <h3>Carcavelos &amp; Oeiras</h3>
+        <span class="stay-area-count">6 hotels</span>
+      </div>
+      <p class="stay-area-desc">The closest area to the Nova SBE campus is Carcavelos and the wider municipality of Oeiras. In this area, we suggest the following hotels.</p>
+      <div class="hotel-grid">
+        <a class="hotel-card" href="https://www.rivierahotel.pt/" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/riviera.jpg" alt="Hotel Riviera" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="4-star hotel">&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Hotel Riviera</div>
+            <div class="hotel-location">Located in Carcavelos. This is the hotel closest to the campus.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">5 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">30 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+        <a class="hotel-card" href="https://www.almeidahotels.pt/en/hotel-carcavelos-in-lisbon" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/carcavelos-beach.jpg" alt="Carcavelos Beach Hotel (formerly Praia Mar)" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="4-star hotel">&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Carcavelos Beach Hotel <small>(formerly Praia Mar)</small></div>
+            <div class="hotel-location">Located in Carcavelos, facing Carcavelos Beach.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">5 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">30 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+        <a class="hotel-card" href="https://www.vilagale.com/en/hotels-portugal/hotels-lisbon-coast/vila-gale-collection-palacio-dos-arcos/" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/palacio-dos-arcos.jpg" alt="Vila Galé Collection Palácio dos Arcos" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="5-star hotel">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Vila Gal&eacute; Collection Pal&aacute;cio dos Arcos</div>
+            <div class="hotel-location">Located in Pa&ccedil;o de Arcos, Oeiras.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">8 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">28 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+        <a class="hotel-card" href="https://www.realoeiras.realhotelsgroup.com/pt-pt/" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/real-oeiras.jpg" alt="Hotel Real Oeiras" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="4-star hotel">&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Hotel Real Oeiras</div>
+            <div class="hotel-location">Located in Oeiras.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">12 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">28 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+        <a class="hotel-card" href="https://www.tdhotels.com/en/portugal/hotels-oeiras/lagoas-park-hotel/" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/lagoas-park.jpg" alt="Lagoas Park Hotel" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="4-star hotel">&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Lagoas Park Hotel</div>
+            <div class="hotel-location">Located in Lagoas Park, Porto Salvo (Oeiras).</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">12 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">26 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+        <a class="hotel-card" href="https://www.hotel-bb.com/en/hotel/lisboa-oeiras" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/bb-oeiras.jpg" alt="B&amp;B Hotel Lisboa Oeiras" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="3-star hotel">&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">B&amp;B Hotel Lisboa Oeiras</div>
+            <div class="hotel-location">Located in Oeiras.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">9 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">24 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="stay-area reveal">
+      <div class="stay-area-head">
+        <h3>Lisbon (Bel&eacute;m)</h3>
+        <span class="stay-area-count">3 hotels</span>
+      </div>
+      <p class="stay-area-desc">For those wishing to stay in the city, we suggest the following hotels in and around the renowned Bel&eacute;m neighbourhood of Lisbon, close to the Bel&eacute;m Tower.</p>
+      <div class="hotel-grid">
+        <a class="hotel-card" href="https://www.altishotels.com/en/altis-belem-spa/" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/altis-belem.jpg" alt="Altis Belém Hotel &amp; Spa" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="5-star hotel">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Altis Bel&eacute;m Hotel &amp; Spa</div>
+            <div class="hotel-location">Located in Bel&eacute;m, Lisbon, on the riverfront.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">18 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">22 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+        <a class="hotel-card" href="https://www.palaciogovernador.com/en" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/palacio-governador.jpg" alt="Hotel Palácio do Governador – Lisbon Hotel &amp; Spa" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="5-star hotel">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Hotel Pal&aacute;cio do Governador &ndash; Lisbon Hotel &amp; Spa</div>
+            <div class="hotel-location">Located in Bel&eacute;m, Lisbon.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">18 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">20 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+        <a class="hotel-card" href="https://www.vilagale.com/en/hotels-portugal/hotels-lisbon-coast/vila-gale-opera/" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/vila-gale-opera.jpg" alt="Vila Galé Ópera" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="4-star hotel">&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Vila Gal&eacute; &Oacute;pera</div>
+            <div class="hotel-location">Located in Lisbon, near Bel&eacute;m.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">22 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">22 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="stay-area reveal">
+      <div class="stay-area-head">
+        <h3>Cascais / Estoril</h3>
+        <span class="stay-area-count">4 hotels</span>
+      </div>
+      <p class="stay-area-desc">For those looking to stay near the iconic and popular beach area of Cascais, we recommend the following hotels.</p>
+      <div class="hotel-grid">
+        <a class="hotel-card" href="https://www.cascaismirage.com/pt" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/cascais-miragem.jpg" alt="Hotel Cascais Miragem" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="5-star hotel">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Hotel Cascais Miragem</div>
+            <div class="hotel-location">Located in Cascais.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">16 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">35 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+        <a class="hotel-card" href="https://www.palacioestorilhotel.com/" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/palacio-estoril.jpg" alt="Hotel Palácio Estoril" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="5-star hotel">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Hotel Pal&aacute;cio Estoril</div>
+            <div class="hotel-location">Located in Estoril.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">14 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">30 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+        <a class="hotel-card" href="https://www.sanahotels.com/en/hotel/evolution-cascais-estoril/" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/evolution-estoril.jpg" alt="Evolution Cascais-Estoril" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="4-star hotel">&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Evolution Cascais-Estoril</div>
+            <div class="hotel-location">Located in Estoril.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">14 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">35 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
+        <a class="hotel-card" href="https://www.pestanacollection.com/en/hotel/fortress-cascais" target="_blank" rel="noopener noreferrer">
+          <div class="hotel-photo"><img src="images/hotels/pestana-cidadela.jpg" alt="Pestana Cidadela Cascais" loading="lazy"></div>
+          <div class="hotel-body">
+            <div class="hotel-stars" aria-label="5-star hotel">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="hotel-name">Pestana Cidadela Cascais</div>
+            <div class="hotel-location">Located in Cascais.</div>
+            <div class="hotel-distances">
+              <div class="hotel-distance"><div class="hotel-distance-label">Nova SBE</div><div class="hotel-distance-value">18 min <small>by car</small></div></div>
+              <div class="hotel-distance"><div class="hotel-distance-label">Airport</div><div class="hotel-distance-value">40 min <small>by car</small></div></div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -1437,11 +1976,35 @@ a.past-item:focus-visible .past-year::after {
     <div class="reveal">
       <div class="section-label">Attend WISE 2026</div>
       <h2 class="section-title">Registration</h2>
-      <p class="section-text">Registration details and fees for WISE 2026 will be announced soon. Registration deadlines: early registration through <strong>October 15, 2026</strong>, regular registration through <strong>November 1, 2026</strong>, and late registration through <strong>November 30, 2026</strong>.</p>
-      <div class="reg-note">
-        <strong>&#8505;</strong>
-        <span>Registration fees and the registration portal link will be published here once available.</span>
+      <p class="section-text">Registration for WISE 2026 is now open. Early-bird rates apply to registrations completed by <strong>October 15, 2026</strong>.</p>
+      <div class="reg-fees-wrap">
+        <table class="reg-fees">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col" class="reg-early">Early bird<span>until October 15, 2026</span></th>
+              <th scope="col">Regular<span>after October 15, 2026</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Academic</th>
+              <td class="reg-early">&euro;570</td>
+              <td>&euro;630</td>
+            </tr>
+            <tr>
+              <th scope="row">Student</th>
+              <td class="reg-early">&euro;460</td>
+              <td>&euro;500</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <div class="cfp-actions">
+        <a class="cfp-submit" href="https://novasbe.bymeoblueticket.pt/Eventos/16603" target="_blank" rel="noopener noreferrer">Register Now &#8594;</a>
+        <a class="cfp-download" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=4zEpxDNn5kGNQsSLozS7pDl8HxWyD2xGhUliqMhBoNxUMzQ3Wk8xVE1BR0hUVVhQRjlQVVZOUTVQMi4u" target="_blank" rel="noopener noreferrer">Request an Invitation Letter</a>
+      </div>
+      <p class="reg-letter">Need an invitation letter for your visa application? Complete the <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=4zEpxDNn5kGNQsSLozS7pDl8HxWyD2xGhUliqMhBoNxUMzQ3Wk8xVE1BR0hUVVhQRjlQVVZOUTVQMi4u" target="_blank" rel="noopener noreferrer">invitation letter request form</a> and we will email your letter to the address you provide within a few days.</p>
     </div>
   </div>
 </section>

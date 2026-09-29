@@ -11,3 +11,6 @@ inbox/
 
 # OS junk
 .DS_Store
+
+# Source documents from the organizers (e.g. hotel list docx) — local only
+docs/
