@@ -1067,6 +1067,29 @@ a.committee-card:focus-visible .committee-name::after {
   border-bottom: 1px solid rgba(200,150,62,0.4);
 }
 
+.policy-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  max-width: 700px;
+  margin-top: 1.75rem;
+  padding: 1.1rem 1.4rem;
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.policy-note-icon {
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.policy-note-title { display: block; font-weight: 600; margin-bottom: 0.15rem; }
+
 .reg-note {
   display: inline-flex;
   align-items: center;
@@ -1583,6 +1606,12 @@ a.past-item:focus-visible .past-year::after {
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
+        <div class="timeline-date">November 15, 2026</div>
+        <div class="timeline-event">Refund Deadline</div>
+        <div class="timeline-note">No refunds for cancellations after this date, for any reason</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
         <div class="timeline-date">November 30, 2026</div>
         <div class="timeline-event">Late Registration</div>
         <div class="timeline-note">Final deadline for conference registration</div>
@@ -2005,6 +2034,13 @@ a.past-item:focus-visible .past-year::after {
         <a class="cfp-download" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=4zEpxDNn5kGNQsSLozS7pDl8HxWyD2xGhUliqMhBoNxUMzQ3Wk8xVE1BR0hUVVhQRjlQVVZOUTVQMi4u" target="_blank" rel="noopener noreferrer">Request an Invitation Letter</a>
       </div>
       <p class="reg-letter">Need an invitation letter for your visa application? Complete the <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=4zEpxDNn5kGNQsSLozS7pDl8HxWyD2xGhUliqMhBoNxUMzQ3Wk8xVE1BR0hUVVhQRjlQVVZOUTVQMi4u" target="_blank" rel="noopener noreferrer">invitation letter request form</a> and we will email your letter to the address you provide within a few days.</p>
+      <div class="policy-note">
+        <span class="policy-note-icon">&#9888;</span>
+        <div>
+          <span class="policy-note-title">Cancellations &amp; refunds</span>
+          No refunds will be issued for cancellations after <strong>November 15, 2026</strong>, for any reason.
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2016,6 +2052,13 @@ a.past-item:focus-visible .past-year::after {
       <div class="section-label">Conference Schedule</div>
       <h2 class="section-title">Program &amp; Social Events</h2>
       <p class="section-text">The program and social events for WISE 2026 are being planned. The conference will feature an evening welcome reception on Wednesday, December 16, followed by two full days of paper presentations with assigned discussants on December 17–18. Details will be announced closer to the conference date.</p>
+      <div class="policy-note">
+        <span class="policy-note-icon">&#9888;</span>
+        <div>
+          <span class="policy-note-title">Presenter availability</span>
+          Presenters must be available to present at any time from the morning of Thursday, December 17, to the end of Friday, December 18. Building the program is complex, and we will not be able to accommodate requests to change it.
+        </div>
+      </div>
     </div>
   </div>
 </section>
