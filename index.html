@@ -1313,6 +1313,20 @@ a.past-item:focus-visible .past-year::after {
 .sponsor-tier--gold .sponsor-card { min-height: 140px; }
 .sponsor-tier--gold .sponsor-card img { max-height: 72px; }
 .sponsor-tier--hosts .sponsor-card img { max-height: 46px; }
+.sponsor-card { position: relative; }
+.sponsor-tag {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--gold-pale);
+  border-radius: 999px;
+}
 
 /* Sponsors whose logo has not arrived yet: render the name as a wordmark */
 .sponsor-name {
@@ -2198,10 +2212,14 @@ a.past-item:focus-visible .past-year::after {
       </div>
 
       <div class="sponsor-tier sponsor-tier--hosts">
-        <div class="sponsor-tier-label">Host Institution</div>
+        <div class="sponsor-tier-label">Local Organizing Institutions</div>
         <div class="sponsor-grid">
           <a class="sponsor-card" href="https://www.novasbe.unl.pt" target="_blank" rel="noopener noreferrer">
-            <img src="images/sponsors/host-nova.png" alt="Nova School of Business and Economics" loading="lazy">
+            <span class="sponsor-tag">Host</span>
+            <img src="images/sponsors/host-nova.png" alt="Nova School of Business and Economics (host)" loading="lazy">
+          </a>
+          <a class="sponsor-card" href="https://www.ucp.pt" target="_blank" rel="noopener noreferrer">
+            <img src="images/sponsors/host-catolica.png" alt="Católica Lisbon School of Business &amp; Economics" loading="lazy">
           </a>
         </div>
       </div>
