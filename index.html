@@ -1243,6 +1243,87 @@ a.past-item:focus-visible .past-year::after {
   filter: invert(1);
 }
 
+/* ── SPONSOR TIERS ── */
+.sponsor-tier { margin-top: 2.75rem; }
+.sponsor-tier + .sponsor-tier { margin-top: 2.25rem; }
+.sponsor-tier-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+.sponsor-tier-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(10, 22, 40, 0.12);
+}
+.sponsor-tier-label::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--tier-color, var(--gold));
+}
+.sponsor-tier--diamond { --tier-color: #5b8fd6; }
+.sponsor-tier--gold    { --tier-color: var(--gold); }
+.sponsor-tier--silver  { --tier-color: #a3a9b3; }
+.sponsor-tier--hosts   { --tier-color: var(--navy); }
+
+.sponsor-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr));
+}
+.sponsor-tier--diamond .sponsor-grid,
+.sponsor-tier--gold .sponsor-grid { grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
+
+.sponsor-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  padding: 1.25rem 1.5rem;
+  background: var(--white);
+  border: 1px solid rgba(10, 22, 40, 0.08);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.2s, box-shadow 0.3s, border-color 0.3s;
+}
+.sponsor-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(10, 22, 40, 0.08);
+}
+.sponsor-card img {
+  display: block;
+  max-width: 100%;
+  max-height: 52px;
+  object-fit: contain;
+}
+.sponsor-card img.sponsor-img--tall { max-height: 70px; }
+.sponsor-tier--diamond .sponsor-card { min-height: 180px; padding: 2rem; }
+.sponsor-tier--diamond .sponsor-card img { max-height: 110px; max-width: min(100%, 380px); }
+.sponsor-tier--gold .sponsor-card { min-height: 140px; }
+.sponsor-tier--gold .sponsor-card img { max-height: 72px; }
+.sponsor-tier--hosts .sponsor-card img { max-height: 46px; }
+
+/* Sponsors whose logo has not arrived yet: render the name as a wordmark */
+.sponsor-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--navy);
+}
+.sponsor-tier--gold .sponsor-name { font-size: 1.45rem; }
+
 /* ── LISBON PHOTO STRIP ── */
 .photo-strip {
   display: grid;
@@ -2069,15 +2150,66 @@ a.past-item:focus-visible .past-year::after {
     <div class="reveal">
       <div class="section-label">Support WISE 2026</div>
       <h2 class="section-title">Sponsors</h2>
-      <div class="sponsor-logos">
-        <a href="https://www.ucp.pt" target="_blank" rel="noopener">
-          <img src="images/logo_ucp.png" alt="Católica Lisbon Business &amp; Economics" class="sponsor-logo">
-        </a>
-        <a href="https://www.novasbe.unl.pt" target="_blank" rel="noopener">
-          <img src="images/logo_nova.png" alt="Nova School of Business and Economics" class="sponsor-logo">
-        </a>
+      <p class="section-text">We are grateful to the sponsors whose support makes WISE 2026 possible.</p>
+
+      <div class="sponsor-tier sponsor-tier--diamond">
+        <div class="sponsor-tier-label">Diamond</div>
+        <div class="sponsor-grid">
+          <a class="sponsor-card" href="https://www.schmidtsciences.org/" target="_blank" rel="noopener noreferrer">
+            <img src="images/sponsors/schmidt-sciences.png" alt="Schmidt Sciences" loading="lazy">
+          </a>
+        </div>
       </div>
-      <p class="section-text" style="margin-top:2rem;">Sponsorship opportunities for WISE 2026 are available. If your institution is interested in sponsoring, please contact the organizing committee.</p>
+
+      <div class="sponsor-tier sponsor-tier--gold">
+        <div class="sponsor-tier-label">Gold</div>
+        <div class="sponsor-grid">
+          <a class="sponsor-card" href="https://www.usc.edu/" target="_blank" rel="noopener noreferrer">
+            <span class="sponsor-name">University of Southern California</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="sponsor-tier sponsor-tier--silver">
+        <div class="sponsor-tier-label">Silver</div>
+        <div class="sponsor-grid">
+          <a class="sponsor-card" href="https://www.lse.ac.uk/" target="_blank" rel="noopener noreferrer">
+            <span class="sponsor-name">London School of Economics and Political Science</span>
+          </a>
+          <a class="sponsor-card" href="https://ide.mit.edu/" target="_blank" rel="noopener noreferrer">
+            <img src="images/sponsors/mit-ide.png" alt="MIT Initiative on the Digital Economy" class="sponsor-img--tall" loading="lazy">
+          </a>
+          <a class="sponsor-card" href="https://www.reveliolabs.com/" target="_blank" rel="noopener noreferrer">
+            <span class="sponsor-name">Revelio Labs</span>
+          </a>
+          <a class="sponsor-card" href="https://www.rwth-aachen.de/" target="_blank" rel="noopener noreferrer">
+            <img src="images/sponsors/rwth-aachen.png" alt="RWTH Aachen University — Chair of Business Information Systems and Digital Transformation" loading="lazy">
+          </a>
+          <a class="sponsor-card" href="https://en-coller.tau.ac.il/" target="_blank" rel="noopener noreferrer">
+            <img src="images/sponsors/tel-aviv-coller.png" alt="Tel Aviv University — Coller School of Management" class="sponsor-img--tall" loading="lazy">
+          </a>
+          <a class="sponsor-card" href="https://carlsonschool.umn.edu/" target="_blank" rel="noopener noreferrer">
+            <img src="images/sponsors/minnesota-carlson.png" alt="University of Minnesota — Carlson School of Management" loading="lazy">
+          </a>
+          <a class="sponsor-card" href="https://pamplin.vt.edu/" target="_blank" rel="noopener noreferrer">
+            <img src="images/sponsors/virginia-tech-pamplin.png" alt="Virginia Tech — Pamplin College of Business" loading="lazy">
+          </a>
+        </div>
+      </div>
+
+      <div class="sponsor-tier sponsor-tier--hosts">
+        <div class="sponsor-tier-label">Host Institutions</div>
+        <div class="sponsor-grid">
+          <a class="sponsor-card" href="https://www.ucp.pt" target="_blank" rel="noopener noreferrer">
+            <img src="images/sponsors/host-catolica.png" alt="Católica Lisbon School of Business &amp; Economics" loading="lazy">
+          </a>
+          <a class="sponsor-card" href="https://www.novasbe.unl.pt" target="_blank" rel="noopener noreferrer">
+            <img src="images/sponsors/host-nova.png" alt="Nova School of Business and Economics" loading="lazy">
+          </a>
+        </div>
+      </div>
+
+      <p class="section-text" style="margin-top:2.5rem;">Sponsorship opportunities for WISE 2026 are available. If your institution is interested in sponsoring, please contact the organizing committee.</p>
       <a href="mailto:wiseconf2026@gmail.com" class="sponsors-cta">
         Become a Sponsor
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
